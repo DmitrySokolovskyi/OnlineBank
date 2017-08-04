@@ -1,7 +1,4 @@
 .idea
 *.iml
 target
-.mvn
-mvnw.cmd
-mvnw
 out
