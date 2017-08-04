@@ -3,6 +3,8 @@ package com.onlinebank.domain;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data @NoArgsConstructor
 public class User {
 
@@ -19,4 +21,8 @@ public class User {
     private PrimaryAccount primaryAccount;
 
     private SavingsAccount savingsAccount;
+
+    private List<Appointment> appointmentList;
+
+    private List<Recipient> recipientList;
 }
