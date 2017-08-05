@@ -13,8 +13,7 @@ import static javax.persistence.GenerationType.AUTO;
 @Entity
 public class SavingsTransaction {
 
-    @Id
-    @GeneratedValue(strategy = AUTO)
+    @Id @GeneratedValue(strategy = AUTO)
     private Long id;
     private Date date;
     private String description;
