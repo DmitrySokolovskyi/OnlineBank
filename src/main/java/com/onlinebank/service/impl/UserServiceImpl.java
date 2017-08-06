@@ -41,8 +41,8 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByUsername(username);
     }
 
-    public User findByEmail(String username) {
-        return userRepository.findByEmail(username);
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email);
     }
 
     public User createUser(User user, Set<UserRole> userRoles) {
@@ -60,10 +60,10 @@ public class UserServiceImpl implements UserService {
 
             user.getUserRoles().addAll(userRoles);
 
-//            user.setPrimaryAccount(accountService.createPrimaryAccount());
-//            user.setSavingsAccount(accountService.createSavingsAccount());
+            user.setPrimaryAccount(accountService.createPrimaryAccount());
+            user.setSavingsAccount(accountService.createSavingsAccount());
 
-//            localUser = roleRepository.save(user);
+            localUser = userRepository.save(user);
         }
 
         return localUser;

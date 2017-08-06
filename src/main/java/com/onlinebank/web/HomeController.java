@@ -1,12 +1,17 @@
 package com.onlinebank.web;
 
 import com.onlinebank.domain.User;
+import com.onlinebank.domain.security.UserRole;
+import com.onlinebank.repository.RoleRepository;
 import com.onlinebank.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.HashSet;
+import java.util.Set;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -16,6 +21,9 @@ public class HomeController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private RoleRepository roleRepository;
 
     @RequestMapping(value = "/")
     public String home() {
@@ -45,7 +53,10 @@ public class HomeController {
             }
             return "signup";
         } else {
-            userService.save(user);
+            Set<UserRole> userRoles = new HashSet<>();
+            userRoles.add(new UserRole(user, roleRepository.findByName("ROLE_USER")));
+
+            userService.createUser(user, userRoles);
             return "redirect:/";
         }
     }
