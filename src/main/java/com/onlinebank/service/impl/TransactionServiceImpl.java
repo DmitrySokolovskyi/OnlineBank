@@ -45,4 +45,12 @@ public class TransactionServiceImpl implements TransactionService {
     public void saveSavingsDepositTransaction(SavingsTransaction savingsTransaction) {
         savingsTransactionRepository.save(savingsTransaction);
     }
+
+    public void savePrimaryWithdrawTransaction(PrimaryTransaction primaryTransaction) {
+        primaryTransactionRepository.save(primaryTransaction);
+    }
+
+    public void saveSavingsWithdrawTransaction(SavingsTransaction savingsTransaction) {
+        savingsTransactionRepository.save(savingsTransaction);
+    }
 }
