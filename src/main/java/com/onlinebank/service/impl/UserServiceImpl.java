@@ -45,6 +45,7 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByEmail(email);
     }
 
+
     public User createUser(User user, Set<UserRole> userRoles) {
         User localUser = userRepository.findByUsername(user.getUsername());
 
@@ -69,8 +70,8 @@ public class UserServiceImpl implements UserService {
         return localUser;
     }
 
-    public boolean checkUserExists(String username, String email) {
-        if (checkUsernameExists(username) || checkEmailExists(email)) {
+    public boolean checkUserExists(String username, String email){
+        if (checkUsernameExists(username) || checkEmailExists(username)) {
             return true;
         } else {
             return false;
@@ -84,10 +85,14 @@ public class UserServiceImpl implements UserService {
         return false;
     }
 
-    public boolean checkEmailExists(String username) {
-        if (null != findByEmail(username)) {
+    public boolean checkEmailExists(String email) {
+        if (null != findByEmail(email)) {
             return true;
         }
         return false;
+    }
+
+    public User saveUser (User user) {
+        return userRepository.save(user);
     }
 }
