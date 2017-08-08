@@ -1,10 +1,8 @@
 package com.onlinebank.service;
 
-import com.onlinebank.domain.PrimaryAccount;
-import com.onlinebank.domain.PrimaryTransaction;
-import com.onlinebank.domain.SavingsAccount;
-import com.onlinebank.domain.SavingsTransaction;
+import com.onlinebank.domain.*;
 
+import java.security.Principal;
 import java.util.List;
 
 public interface TransactionService {
@@ -22,4 +20,12 @@ public interface TransactionService {
     void saveSavingsWithdrawTransaction(SavingsTransaction savingsTransaction);
 
     void betweenAccountsTransfer(String transferFrom, String transferTo, String amount, PrimaryAccount primaryAccount, SavingsAccount savingsAccount) throws Exception;
+
+    List<Recipient> findRecipientList(Principal principal);
+
+    Recipient saveRecipient(Recipient recipient);
+
+    Recipient findRecipientByName(String recipientName);
+
+    void deleteRecipientByName(String recipientName);
 }
