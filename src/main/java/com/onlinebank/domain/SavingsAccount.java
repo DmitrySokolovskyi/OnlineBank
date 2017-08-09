@@ -10,8 +10,8 @@ import java.util.List;
 
 import static javax.persistence.GenerationType.AUTO;
 
-@Data @NoArgsConstructor
 @Entity
+@Data @NoArgsConstructor
 public class SavingsAccount {
 
     @Id @GeneratedValue(strategy = AUTO)

@@ -9,8 +9,8 @@ import java.util.Date;
 
 import static javax.persistence.GenerationType.AUTO;
 
-@Data @NoArgsConstructor
 @Entity
+@Data @NoArgsConstructor
 public class PrimaryTransaction {
 
     @Id @GeneratedValue(strategy = AUTO)

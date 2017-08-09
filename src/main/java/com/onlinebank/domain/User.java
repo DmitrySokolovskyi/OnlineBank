@@ -16,12 +16,11 @@ import java.util.Set;
 
 import static javax.persistence.GenerationType.AUTO;
 
-@Data @NoArgsConstructor
 @Entity
+@Data @NoArgsConstructor
 public class User implements UserDetails {
 
-    @Id
-    @GeneratedValue(strategy = AUTO)
+    @Id @GeneratedValue(strategy = AUTO)
     @Column(name = "userId", nullable = false, updatable = false)
     private Long userId;
     private String username;

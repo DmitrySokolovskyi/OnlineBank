@@ -7,11 +7,11 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Data @NoArgsConstructor
 @Entity
+@Data @NoArgsConstructor
 public class Role {
+
     @Id
-//    @GeneratedValue(strategy = AUTO)
     private int roleId;
 
     private String name;
